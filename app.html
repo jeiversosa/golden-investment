@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Investment | Subank</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="phone">
+
+  <!-- ===================== LOGIN SCREEN ===================== -->
+  <section id="login-screen" class="screen login-screen active">
+    <div class="login-bg-shape shape-1"></div>
+    <div class="login-bg-shape shape-2"></div>
+
+    <div class="login-content">
+      <img src="assets/logo.png" alt="Golden Investment" class="login-logo">
+      <p class="login-subtitle">Fondo de inversión · Subank</p>
+
+      <form id="login-form" class="login-form">
+        <div class="field">
+          <label for="username">Usuario</label>
+          <input type="text" id="username" name="username" placeholder="Ingresa tu usuario" autocomplete="username" required>
+        </div>
+        <div class="field">
+          <label for="password">Contraseña</label>
+          <div class="password-wrap">
+            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
+            <button type="button" id="toggle-password" class="icon-btn" aria-label="Mostrar contraseña">👁</button>
+          </div>
+        </div>
+
+        <p id="login-error" class="login-error" hidden>Usuario o contraseña incorrectos.</p>
+
+        <button type="submit" class="btn-primary">Ingresar</button>
+      </form>
+
+      <p class="login-hint">Demo: usuario <strong>admin</strong> · contraseña <strong>123456789</strong></p>
+    </div>
+  </section>
+
+  <!-- ===================== DASHBOARD SCREEN ===================== -->
+  <section id="dashboard-screen" class="screen dashboard-screen">
+
+    <header class="dash-header">
+      <div class="dash-user">
+        <img src="assets/logo.png" alt="Golden Investment" class="dash-logo">
+        <div>
+          <p class="dash-greeting">Hola, <span id="client-name">Cliente</span> 👋</p>
+          <p class="dash-account">Cuenta N° <span id="client-account">GI-0231-9098</span></p>
+        </div>
+      </div>
+      <button id="logout-btn" class="icon-btn logout-btn" aria-label="Cerrar sesión">⏻</button>
+    </header>
+
+    <main class="dash-main">
+
+      <!-- Balance card -->
+      <div class="balance-card">
+        <div class="balance-top">
+          <span class="balance-label">Saldo total del fondo</span>
+          <button id="toggle-balance" class="icon-btn small" aria-label="Ocultar saldo">👁</button>
+        </div>
+        <p class="balance-amount" id="balance-amount">$18.452.300</p>
+        <div class="balance-footer">
+          <span id="rentability-badge" class="badge badge-up">▲ <span id="rentability-value">2,4%</span></span>
+          <span class="balance-period-label">en el periodo seleccionado</span>
+        </div>
+      </div>
+
+      <!-- Time period tabs -->
+      <div class="period-tabs" id="period-tabs" role="tablist">
+        <button class="period-tab" data-period="semanal" role="tab">Semanal</button>
+        <button class="period-tab active" data-period="mensual" role="tab">Mensual</button>
+        <button class="period-tab" data-period="trimestral" role="tab">Trimestral</button>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-icon">📈</span>
+          <span class="stat-value" id="stat-rentabilidad">2,4%</span>
+          <span class="stat-label">Rentabilidad</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">💰</span>
+          <span class="stat-value" id="stat-aportes">$16.800.000</span>
+          <span class="stat-label">Aportes</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">✨</span>
+          <span class="stat-value" id="stat-rendimientos">$1.652.300</span>
+          <span class="stat-label">Rendimientos</span>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <h3>Evolución de la rentabilidad</h3>
+          <span class="chart-period-tag" id="chart-period-tag">Últimos 30 días</span>
+        </div>
+        <div class="chart-bars" id="chart-bars"></div>
+      </div>
+
+      <!-- Movements -->
+      <div class="movements-card">
+        <div class="movements-header">
+          <h3>Movimientos</h3>
+          <span class="chart-period-tag" id="movements-period-tag">Mensual</span>
+        </div>
+        <ul class="movements-list" id="movements-list"></ul>
+      </div>
+
+    </main>
+
+    <!-- Bottom nav (estilo Nequi) -->
+    <nav class="bottom-nav">
+      <button class="nav-item active" data-tab="inicio">
+        <span class="nav-icon">🏠</span><span>Inicio</span>
+      </button>
+      <button class="nav-item" data-tab="movimientos">
+        <span class="nav-icon">🔄</span><span>Movimientos</span>
+      </button>
+      <button class="nav-item" data-tab="rentabilidad">
+        <span class="nav-icon">📊</span><span>Rentabilidad</span>
+      </button>
+      <button class="nav-item" data-tab="perfil">
+        <span class="nav-icon">👤</span><span>Perfil</span>
+      </button>
+      <button class="nav-item" data-tab="simulador">
+        <span class="nav-icon">🧮</span><span>Simular</span>
+      </button>
+    </nav>
+
+  </section>
+
+  <!-- ===================== SIMULATOR SCREEN ===================== -->
+  <section id="simulator-screen" class="screen simulator-screen">
+
+    <header class="dash-header">
+      <div class="dash-user">
+        <button id="sim-back-btn" class="icon-btn sim-back-btn" aria-label="Volver al inicio">←</button>
+        <div>
+          <p class="dash-greeting">Simulador de inversión</p>
+          <p class="dash-account">Proyecta el crecimiento de tu fondo</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="dash-main sim-main">
+
+      <!-- Simulation form -->
+      <form id="sim-form" class="sim-card">
+        <h3 class="sim-card-title">Datos de la simulación</h3>
+
+        <div class="field">
+          <label for="sim-name">Nombre del inversor</label>
+          <input type="text" id="sim-name" name="sim-name" placeholder="Ej: Pepito Pérez" required>
+        </div>
+
+        <div class="field">
+          <label for="sim-amount">Monto a invertir</label>
+          <input type="number" id="sim-amount" name="sim-amount" min="100000" step="10000" placeholder="Ej: 5000000" required>
+        </div>
+
+        <div class="field">
+          <label for="sim-years">Período de inversión (años)</label>
+          <input type="number" id="sim-years" name="sim-years" min="1" max="30" value="2" required>
+        </div>
+
+        <div class="field">
+          <label>Perfil de rentabilidad anual</label>
+          <div class="sim-profile-tabs" id="sim-profile-tabs">
+            <button type="button" class="sim-profile-btn" data-profile="bajo" data-rate="6">Bajo · 6%</button>
+            <button type="button" class="sim-profile-btn active" data-profile="medio" data-rate="10">Medio · 10%</button>
+            <button type="button" class="sim-profile-btn" data-profile="alto" data-rate="16">Alto · 16%</button>
+            <button type="button" class="sim-profile-btn" data-profile="custom" data-rate="">Personalizado</button>
+          </div>
+          <input type="number" id="sim-rate" class="sim-rate-input" min="0" max="100" step="0.1" value="10" hidden aria-label="Tasa de rentabilidad personalizada">
+        </div>
+
+        <h3 class="sim-card-title sim-section-spacing">Distribución de fondos</h3>
+        <div class="sim-distribution" id="sim-distribution">
+          <div class="sim-dist-row" data-key="constructoraA">
+            <label>Constructora A</label>
+            <input type="range" min="0" max="100" value="40" class="sim-dist-slider" aria-label="Porcentaje Constructora A">
+            <span class="sim-dist-value">40%</span>
+          </div>
+          <div class="sim-dist-row" data-key="constructoraB">
+            <label>Constructora B</label>
+            <input type="range" min="0" max="100" value="30" class="sim-dist-slider" aria-label="Porcentaje Constructora B">
+            <span class="sim-dist-value">30%</span>
+          </div>
+          <div class="sim-dist-row" data-key="fondosComunes">
+            <label>Fondos Comunes</label>
+            <input type="range" min="0" max="100" value="30" class="sim-dist-slider" aria-label="Porcentaje Fondos Comunes">
+            <span class="sim-dist-value">30%</span>
+          </div>
+        </div>
+        <p class="sim-dist-total" id="sim-dist-total">Total: 100%</p>
+
+        <button type="submit" class="btn-primary">Calcular proyección</button>
+      </form>
+
+      <!-- Results -->
+      <div id="sim-results" class="sim-results" hidden>
+
+        <div class="sim-summary-row">
+          <div class="stat-card">
+            <span class="stat-icon">💵</span>
+            <span class="stat-value" id="sim-final-value">$0</span>
+            <span class="stat-label">Valor final</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">✨</span>
+            <span class="stat-value" id="sim-gain">$0</span>
+            <span class="stat-label">Ganancia total</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">📈</span>
+            <span class="stat-value" id="sim-roi">0%</span>
+            <span class="stat-label">ROI</span>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3>Crecimiento proyectado</h3>
+            <span class="chart-period-tag" id="sim-chart-tag">0 años</span>
+          </div>
+          <div id="sim-area-chart" class="sim-area-chart"></div>
+        </div>
+
+        <div class="movements-card sim-table-card">
+          <div class="movements-header">
+            <h3>Proyección año por año</h3>
+          </div>
+          <div class="sim-table-wrap">
+            <table class="sim-table" id="sim-table">
+              <thead>
+                <tr>
+                  <th>Año</th>
+                  <th>Constructora A</th>
+                  <th>Constructora B</th>
+                  <th>Fondos Comunes</th>
+                  <th>Rent. acum.</th>
+                  <th>Valor total</th>
+                </tr>
+              </thead>
+              <tbody id="sim-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="sim-actions">
+          <button id="sim-save-btn" class="btn-secondary" type="button">💾 Guardar simulación</button>
+          <button id="sim-export-btn" class="btn-secondary" type="button">🖨️ Exportar a PDF</button>
+        </div>
+      </div>
+
+      <!-- Saved simulations -->
+      <div class="movements-card sim-saved-card">
+        <div class="movements-header">
+          <h3>Simulaciones guardadas</h3>
+          <span class="chart-period-tag" id="sim-saved-count">0</span>
+        </div>
+        <ul class="sim-saved-list" id="sim-saved-list">
+          <li class="sim-saved-empty">Aún no has guardado simulaciones.</li>
+        </ul>
+        <div class="sim-compare" id="sim-compare" hidden>
+          <h4>Comparación de escenarios</h4>
+          <div class="sim-compare-table-wrap">
+            <table class="sim-table" id="sim-compare-table"></table>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
