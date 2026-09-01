@@ -616,6 +616,12 @@ body.landing-body{
   color: var(--navy);
 }
 .sim-section-spacing{ margin-top:6px; }
+.sim-subtitle{
+  margin:-8px 0 4px;
+  font-size:0.78rem;
+  color: var(--text-soft);
+  font-weight:500;
+}
 
 .sim-card .field label{ color: var(--text-soft); }
 .sim-card .field input{
@@ -666,6 +672,18 @@ body.landing-body{
   outline:none;
 }
 .sim-rate-input:focus{ border-color: var(--gold); background:#fff; }
+
+.sim-rate-alert{
+  margin:10px 0 0;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  background: rgba(230,179,37,0.12);
+  border: 1px solid rgba(230,179,37,0.35);
+  color: var(--text);
+  font-size:0.76rem;
+  line-height:1.5;
+}
+.sim-rate-alert strong{ color: var(--navy); }
 
 .sim-distribution{ display:flex; flex-direction:column; gap:14px; }
 .sim-dist-row{

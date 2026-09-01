@@ -177,15 +177,16 @@
         <div class="field">
           <label>Perfil de rentabilidad anual</label>
           <div class="sim-profile-tabs" id="sim-profile-tabs">
-            <button type="button" class="sim-profile-btn" data-profile="bajo" data-rate="6">Bajo · 6%</button>
-            <button type="button" class="sim-profile-btn active" data-profile="medio" data-rate="10">Medio · 10%</button>
-            <button type="button" class="sim-profile-btn" data-profile="alto" data-rate="16">Alto · 16%</button>
+            <button type="button" class="sim-profile-btn" data-profile="bajo" data-rate="7.6">7,6%</button>
+            <button type="button" class="sim-profile-btn active" data-profile="medio" data-rate="10">10%</button>
             <button type="button" class="sim-profile-btn" data-profile="custom" data-rate="">Personalizado</button>
           </div>
           <input type="number" id="sim-rate" class="sim-rate-input" min="0" max="100" step="0.1" value="10" hidden aria-label="Tasa de rentabilidad personalizada">
+          <p class="sim-rate-alert">⚠️ Los porcentajes indicados corresponden a la <strong>tasa EA (Efectiva Anual) objetivo</strong>, no garantizada.</p>
         </div>
 
         <h3 class="sim-card-title sim-section-spacing">Distribución de fondos</h3>
+        <p class="sim-subtitle">Empresas aliadas</p>
         <div class="sim-distribution" id="sim-distribution">
           <div class="sim-dist-row" data-key="amarilo">
             <img src="assets/companies/amarilo.png" alt="Amarilo" class="sim-company-logo">
