@@ -187,20 +187,41 @@
 
         <h3 class="sim-card-title sim-section-spacing">Distribución de fondos</h3>
         <div class="sim-distribution" id="sim-distribution">
-          <div class="sim-dist-row" data-key="constructoraA">
-            <label>Constructora A</label>
-            <input type="range" min="0" max="100" value="40" class="sim-dist-slider" aria-label="Porcentaje Constructora A">
-            <span class="sim-dist-value">40%</span>
+          <div class="sim-dist-row" data-key="amarilo">
+            <img src="assets/companies/amarilo.png" alt="Amarilo" class="sim-company-logo">
+            <label>Amarilo</label>
+            <input type="range" min="0" max="100" value="20" class="sim-dist-slider" aria-label="Porcentaje Amarilo">
+            <span class="sim-dist-value">20%</span>
           </div>
-          <div class="sim-dist-row" data-key="constructoraB">
-            <label>Constructora B</label>
-            <input type="range" min="0" max="100" value="30" class="sim-dist-slider" aria-label="Porcentaje Constructora B">
-            <span class="sim-dist-value">30%</span>
+          <div class="sim-dist-row" data-key="marval">
+            <img src="assets/companies/marval.png" alt="Marval" class="sim-company-logo">
+            <label>Marval</label>
+            <input type="range" min="0" max="100" value="20" class="sim-dist-slider" aria-label="Porcentaje Marval">
+            <span class="sim-dist-value">20%</span>
           </div>
-          <div class="sim-dist-row" data-key="fondosComunes">
-            <label>Fondos Comunes</label>
-            <input type="range" min="0" max="100" value="30" class="sim-dist-slider" aria-label="Porcentaje Fondos Comunes">
-            <span class="sim-dist-value">30%</span>
+          <div class="sim-dist-row" data-key="conaco">
+            <img src="assets/companies/conaco.png" alt="Conaco" class="sim-company-logo">
+            <label>Conaco</label>
+            <input type="range" min="0" max="100" value="15" class="sim-dist-slider" aria-label="Porcentaje Conaco">
+            <span class="sim-dist-value">15%</span>
+          </div>
+          <div class="sim-dist-row" data-key="bolivar">
+            <img src="assets/companies/bolivar.png" alt="Constructora Bolívar" class="sim-company-logo">
+            <label>Bolívar</label>
+            <input type="range" min="0" max="100" value="15" class="sim-dist-slider" aria-label="Porcentaje Bolívar">
+            <span class="sim-dist-value">15%</span>
+          </div>
+          <div class="sim-dist-row" data-key="conconcreto">
+            <img src="assets/companies/conconcreto.png" alt="Conconcreto" class="sim-company-logo">
+            <label>Conconcreto</label>
+            <input type="range" min="0" max="100" value="15" class="sim-dist-slider" aria-label="Porcentaje Conconcreto">
+            <span class="sim-dist-value">15%</span>
+          </div>
+          <div class="sim-dist-row" data-key="prodesa">
+            <img src="assets/companies/prodesa.png" alt="Prodesa" class="sim-company-logo">
+            <label>Prodesa</label>
+            <input type="range" min="0" max="100" value="15" class="sim-dist-slider" aria-label="Porcentaje Prodesa">
+            <span class="sim-dist-value">15%</span>
           </div>
         </div>
         <p class="sim-dist-total" id="sim-dist-total">Total: 100%</p>
@@ -243,16 +264,7 @@
           </div>
           <div class="sim-table-wrap">
             <table class="sim-table" id="sim-table">
-              <thead>
-                <tr>
-                  <th>Año</th>
-                  <th>Constructora A</th>
-                  <th>Constructora B</th>
-                  <th>Fondos Comunes</th>
-                  <th>Rent. acum.</th>
-                  <th>Valor total</th>
-                </tr>
-              </thead>
+              <thead id="sim-table-head"></thead>
               <tbody id="sim-table-body"></tbody>
             </table>
           </div>

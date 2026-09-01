@@ -670,11 +670,20 @@ body.landing-body{
 .sim-distribution{ display:flex; flex-direction:column; gap:14px; }
 .sim-dist-row{
   display:grid;
-  grid-template-columns: 112px 1fr 46px;
+  grid-template-columns: 28px 90px 1fr 42px;
   align-items:center;
-  gap:10px;
+  gap:8px;
 }
-.sim-dist-row label{ font-size:0.82rem; color: var(--text-soft); font-weight:500; }
+.sim-company-logo{
+  width:28px;
+  height:28px;
+  border-radius:7px;
+  object-fit:contain;
+  background:#fff;
+  box-shadow: 0 0 0 1px rgba(22,33,75,0.1);
+  flex-shrink:0;
+}
+.sim-dist-row label{ font-size:0.8rem; color: var(--text-soft); font-weight:500; line-height:1.2; }
 .sim-dist-slider{ width:100%; accent-color: var(--gold); }
 .sim-dist-value{
   font-size:0.82rem;
@@ -739,6 +748,16 @@ body.landing-body{
   font-size:0.7rem;
   text-transform:uppercase;
   letter-spacing:0.3px;
+}
+.sim-th-logo{
+  width:16px;
+  height:16px;
+  border-radius:4px;
+  vertical-align:middle;
+  margin-right:4px;
+  object-fit:contain;
+  background:#fff;
+  box-shadow: 0 0 0 1px rgba(22,33,75,0.08);
 }
 .sim-table td{ color: var(--text); }
 .sim-table tbody tr:last-child td{ border-bottom:none; }

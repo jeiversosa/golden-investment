@@ -234,9 +234,12 @@ document.getElementById('sim-back-btn').addEventListener('click', () => {
 
 // ===================== SIMULADOR DE INVERSIONES =====================
 const SIM_COMPANIES = [
-  { key: 'constructoraA', label: 'Constructora A' },
-  { key: 'constructoraB', label: 'Constructora B' },
-  { key: 'fondosComunes', label: 'Fondos Comunes' }
+  { key: 'amarilo', label: 'Amarilo', logo: 'assets/companies/amarilo.png' },
+  { key: 'marval', label: 'Marval', logo: 'assets/companies/marval.png' },
+  { key: 'conaco', label: 'Conaco', logo: 'assets/companies/conaco.png' },
+  { key: 'bolivar', label: 'Bolívar', logo: 'assets/companies/bolivar.png' },
+  { key: 'conconcreto', label: 'Conconcreto', logo: 'assets/companies/conconcreto.png' },
+  { key: 'prodesa', label: 'Prodesa', logo: 'assets/companies/prodesa.png' }
 ];
 const SIM_STORAGE_KEY = 'gi_saved_simulations';
 
@@ -387,19 +390,31 @@ function renderSimChart(points) {
   `;
 }
 
+function renderSimTableHead() {
+  const thead = document.getElementById('sim-table-head');
+  thead.innerHTML = `
+    <tr>
+      <th>Año</th>
+      ${SIM_COMPANIES.map((c) => `<th><img src="${c.logo}" alt="" class="sim-th-logo">${c.label}</th>`).join('')}
+      <th>Rent. acum.</th>
+      <th>Valor total</th>
+    </tr>
+  `;
+}
+
 function renderSimTable(rows) {
   const body = document.getElementById('sim-table-body');
   body.innerHTML = rows.map((r) => `
     <tr>
       <td>${r.year}</td>
-      <td>${formatCOP(r.companyValues.constructoraA)}</td>
-      <td>${formatCOP(r.companyValues.constructoraB)}</td>
-      <td>${formatCOP(r.companyValues.fondosComunes)}</td>
+      ${SIM_COMPANIES.map((c) => `<td>${formatCOP(r.companyValues[c.key])}</td>`).join('')}
       <td>${r.accumulatedPct.toFixed(1).replace('.', ',')}%</td>
       <td><strong>${formatCOP(r.total)}</strong></td>
     </tr>
   `).join('');
 }
+
+renderSimTableHead();
 
 // --- Guardar simulaciones ---
 function getSavedSimulations() {
